@@ -1,12 +1,12 @@
 {
     "invites": [
-        { "Event": "Event 1", "invitedUsers": ["user1@gmail.com"],"timestamp" : 1698321989677 , "id": 1 },
-        { "Event": "Event 2", "invitedUsers": ["user2@gmail.com"],"timestamp" : 1698321669677 , "id": 2 },
-        { "Event": "Event 3", "invitedUsers": ["user3@gmail.com"],"timestamp" : 1698321989677 , "id": 3 },
-        { "Event": "Event 4", "invitedUsers": ["user4@gmail.com"],"timestamp" : 1698321989677 , "id": 4 },
-        { "Event": "Event 5", "invitedUsers": ["user5@gmail.com"],"timestamp" : 1698321989677 , "id": 5 },
-        { "Event": "Event 6", "invitedUsers": ["user6@gmail.com"],"timestamp" : 1698321989677 , "id": 6 },
-        { "Event": "Event 7", "invitedUsers": ["user8@gmail.com"],"timestamp" : 1698321989677 , "id": 7 },
-        { "Event": "Event 8", "invitedUsers": ["user7@gmail.com"],"timestamp" : 1698321989677 , "id": 8 }
+        { "Event": "Event 3", "invitedUsers": ["user1@gmail.com"] , "id": 3 },
+        { "Event": "Event 4", "invitedUsers": ["user4@gmail.com"], "id": 4 },
+        { "Event": "Event 5", "invitedUsers": ["user5@gmail.com"] , "id": 5 },
+        { "Event": "Event 6", "invitedUsers": ["user6@gmail.com"], "id": 6 },
+        { "Event": "Event 1", "invitedUsers": ["user1@gmail.com","user2@gmail.com"], "id": 1 },
+        { "Event": "Event 7", "invitedUsers": ["user8@gmail.com"],"id": 7 },
+        { "Event": "Event 8", "invitedUsers": ["user7@gmail.com"], "id": 8 },
+        { "Event": "Event 2", "invitedUsers": ["user2@gmail.com","user3@gmail.com"], "id": 2 }
     ]
 }

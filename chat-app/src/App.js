@@ -23,6 +23,7 @@ function App({ userEmail : currentUserEmail}) {
   }
 
   return (
+      <ErrorBoundary>
     <div className="ChatApp">
       <div>Chat</div>
       <div>
@@ -34,8 +35,10 @@ function App({ userEmail : currentUserEmail}) {
               {user.name}
           </div>
       })}
+          <div className="chatRow errorRow" onClick={()=> { throw new Error("something wrong") }}> Throw Error</div>
       </div>
     </div>
+      </ErrorBoundary>
   );
 }
 

@@ -1,12 +1,12 @@
 import React, {lazy, Suspense, useEffect, useState} from 'react'; // Must be imported for webpack to work
 import './App.css';
+import users from './mockData/users.json';
 
 const Chat = lazy(() => import('ChatApp/Chat'));
 const Calendar = lazy(() => import('CalendarApp/Calendar'));
 
 function App() {
-  const [users, setUsers] = useState();
-  const [currentUserEmail, setCurrentUserEmail] = useState('user1@gmail.com');
+  const [activeUserEmail, setActiveUserEmail] = useState(users.find(u => u.active).email);
 
   useEffect(() => {
     const eventListener = (data) => {
@@ -19,17 +19,30 @@ function App() {
   return (
     <>
     <header>
-      <span className='logo'>Gmail App</span>
-      <div className='searchDiv' ><input className='searchbar'placeholder='Search Emails'></input></div>
-      <span className='profile'>Profile</span>
+      <span className='logo'>GMail </span>
+
+      <div className="user-selection">
+        <div> Switch User</div>
+      <ul>
+        {users.map( user => {
+          return <li
+              className={user.email === activeUserEmail && 'activeUser'}
+              onClick={()=> setActiveUserEmail(user.email)}>
+            {user.name}
+          </li>
+        })}
+      </ul>
+      </div>
+      <div className='searchDiv' ><input className='searchbar' placeholder='Search Emails... nothing happens here'></input></div>
+
     </header>
     <div className="App">
       <Suspense fallback={<div>Loading Chat...</div>}>
-        <Chat userEmail={currentUserEmail}/>
+        <Chat userEmail={activeUserEmail}/>
       </Suspense>
       <div className="container">Gmail home page</div>
-      <Suspense fallback={<div>Loading Chat...</div>}>
-        <Calendar userEmail={currentUserEmail} />
+      <Suspense fallback={<div>Loading Calendar...</div>}>
+        <Calendar userEmail={activeUserEmail} />
       </Suspense>
     </div>
     </>
