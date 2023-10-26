@@ -3,57 +3,57 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const { dependencies } = require("./package.json");
 
 module.exports = {
-    entry: "./src/entry.js",
-    mode: "development",
-    devServer: {
-        port: 3002,
-    },
-    module: {
-        rules: [
-            {
-            test: /\.(js|jsx)?$/,
-            exclude: /node_modules/,
-            use: [
-                {
-                loader: "babel-loader",
-                options: {
-                    presets: ["@babel/preset-env", "@babel/preset-react"],
-                },
-                },
-            ],
+  entry: "./src/entry.js",
+  mode: "development",
+  devServer: {
+    port: 3002,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)?$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env", "@babel/preset-react"],
             },
-            {
-                test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
-            },
+          },
         ],
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: "./public/index.html",
-            favicon: "./public/favicon.ico",
-        }),
-        new ModuleFederationPlugin({
-            name: "CalendarApp",
-            filename: "remoteEntry.js",
-            exposes: {
-              "./Calendar": "./src/App",
-            },
-            shared: {
-              ...dependencies,
-              react: {
-                singleton: true,
-                requiredVersion: dependencies["react"],
-              },
-              "react-dom": {
-                singleton: true,
-                requiredVersion: dependencies["react-dom"],
-              },
-            },
-          }),
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
     ],
-    resolve: {
-        extensions: [".js", ".jsx"],
-    },
-    target: "web",
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+      favicon: "./public/favicon.ico",
+    }),
+    new ModuleFederationPlugin({
+      name: "CalendarApp",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./Calendar": "./src/App",
+      },
+      shared: {
+        ...dependencies,
+        react: {
+          singleton: true,
+          requiredVersion: dependencies["react"],
+        },
+        "react-dom": {
+          singleton: true,
+          requiredVersion: dependencies["react-dom"],
+        },
+      },
+    }),
+  ],
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
+  target: "web",
 };

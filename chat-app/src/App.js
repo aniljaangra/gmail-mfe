@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"; // Must be imported for webpack to work
 import "./App.css";
-import ErrorBoundary from "./ErrorBoundary";
 
 function App({ userEmail: currentUserEmail }) {
   const [users, setUsers] = useState([]);
@@ -14,44 +13,36 @@ function App({ userEmail: currentUserEmail }) {
     fetchData();
   }, []);
 
-  const handleClick = (user) => {
-    const customEvent = new CustomEvent("chat", {
-      detail: { message: "Hello from Chat User" },
+  const reportError = () => {
+    const customEvent = new CustomEvent("error", {
+      detail: {
+        message: "Simulated Error , should be called from Error Boundary",
+      },
     });
     document.dispatchEvent(customEvent);
-    console.log("User Clicked -> ", user);
   };
 
   return (
-    <ErrorBoundary>
-      <div className="ChatApp">
-        <div>Chat</div>
-        <div>
-          {users?.map((user) => {
-            return (
-              <div
-                onClick={() => handleClick(user)}
-                className={`${
-                  currentUserEmail === user.email && "activeUser"
-                } chatRow `}
-                key={user.id}
-              >
-                {user.name}
-              </div>
-            );
-          })}
-          <div
-            className="chatRow errorRow"
-            onClick={() => {
-              throw new Error("something wrong");
-            }}
-          >
-            {" "}
-            Throw Error
-          </div>
+    <div className="ChatApp">
+      <h3>Chat</h3>
+      <div>
+        {users?.map((user) => {
+          return (
+            <div
+              className={`${
+                currentUserEmail === user.email && "activeUser"
+              } chatRow `}
+              key={user.id}
+            >
+              {user.name}
+            </div>
+          );
+        })}
+        <div className="chatRow errorRow" onClick={reportError}>
+          Throw Error
         </div>
       </div>
-    </ErrorBounda>
+    </div>
   );
 }
 

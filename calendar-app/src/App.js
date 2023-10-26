@@ -15,7 +15,7 @@ function App({ userEmail }) {
 
   return (
     <div className="CalendarApp">
-      <div>Calendar</div>
+      <h3>Calendar</h3>
       {invites?.map((invite) => {
         return (
           <div

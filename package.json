@@ -1,0 +1,16 @@
+{
+  "name": "gmail-mfe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install" : "concurrently \"cd ./gmail-app && yarn install\" \"cd ./chat-app && yarn install\" \"cd ./calendar-app && yarn install\"",
+    "start" : "concurrently \"cd ./gmail-app && yarn start\" \"cd ./chat-app && yarn start\" \"cd ./calendar-app && yarn start\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

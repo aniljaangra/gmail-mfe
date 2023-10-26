@@ -9,9 +9,8 @@
     },
     "scripts": {
         "start": "webpack serve",
-        "build": "webpack --mode production",
-        "startAll" : "concurrently \"yarn start\" \"cd ../chat-app && yarn start\" \"cd ../calendar-app && yarn start\""
-    },
+        "build": "webpack --mode production"
+        },
     "eslintConfig": {
         "extends": [
             "react-app",
