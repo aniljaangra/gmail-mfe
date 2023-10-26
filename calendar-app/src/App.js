@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"; // Must be imported for webpack to work
 import "./App.css";
 
-function App(props) {
+function App({ userEmail }) {
   const [invites, setInvites] = useState([]);
 
   useEffect(() => {
@@ -12,17 +12,16 @@ function App(props) {
 
     fetchData();
   }, []);
-  const handleClick = (invite) => {
-    console.log("Invite Clicked -> ", invite);
-  };
+
   return (
     <div className="CalendarApp">
       <div>Calendar</div>
       {invites?.map((invite) => {
         return (
           <div
-            onClick={() => handleClick(invite)}
-            className={"chatRow"}
+            className={`${
+              invite.invitedUsers.includes(userEmail) && "activeEvent"
+            } chatRow`}
             key={invite.id}
           >
             {invite.Event}
