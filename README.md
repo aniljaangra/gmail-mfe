@@ -22,5 +22,5 @@ Centralised Error Tracking is done in gmail-app , click `Throw Error` on the Cha
 
 # Gmail System Design
 
-Please check `gmail-app/System-Design` directory to find basic Gmail components with props
+Please check `gmail-app/src/System-Design` directory to find basic Gmail components with props
 
