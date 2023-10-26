@@ -1,12 +1,5 @@
-{
-    "users": [
-        { "name": "user 1", "email": "user1@gmail.com", "id": 1 },
+[
+        { "name": "user 1", "email": "user1@gmail.com", "id": 1 , "active": true },
         { "name": "user 2", "email": "user2@gmail.com", "id": 2 },
-        { "name": "user 3", "email": "user3@gmail.com", "id": 3 },
-        { "name": "user 4", "email": "user4@gmail.com", "id": 4 },
-        { "name": "user 5", "email": "user5@gmail.com", "id": 5 },
-        { "name": "user 6", "email": "user6@gmail.com", "id": 6 },
-        { "name": "user 7", "email": "user8@gmail.com", "id": 7 },
-        { "name": "user 8", "email": "user7@gmail.com", "id": 8 }
-    ]
-}
+        { "name": "user 3", "email": "user3@gmail.com", "id": 3 }
+]
