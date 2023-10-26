@@ -19,3 +19,8 @@ There are 3 apps
 User details are shared from gmail-app to both the remotes . use `Switch User` to see the example.
 
 Centralised Error Tracking is done in gmail-app , click `Throw Error` on the Chat to demonstrate this.
+
+# Gmail System Design
+
+Please check `gmail-app/System-Design` directory to find basic Gmail components with props
+
